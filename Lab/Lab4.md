@@ -2,11 +2,11 @@
 
 ## Lab A — Technique → Telemetry → Detection ideas
 ### Technique
-- **T1110 Brute Force** (Credential Access) :contentReference[oaicite:11]{index=11}
+- **T1110 Brute Force** (Credential Access) 
 
 ### What the attacker is trying to do (plain language)
 Adversary repeatedly attempts credentials to obtain access to valid accounts when passwords are unknown.
-This can happen during initial access or later in the intrusion. :contentReference[oaicite:12]{index=12}
+This can happen during initial access or later in the intrusion.
 
 ### Possible telemetry sources (what logs can show it)
 - **Linux**: `/var/log/auth.log` (SSH failed/success auth)
@@ -27,7 +27,7 @@ This can happen during initial access or later in the intrusion. :contentReferen
 
 3) **Password spraying pattern (cross-user, same source)**
    - Trigger when one source IP attempts 1–2 failed logons across many distinct usernames within a longer window.
-   - Why: password spraying is a common brute force variant and avoids per-user thresholds. :contentReference[oaicite:13]{index=13}
+   - Why: password spraying is a common brute force variant and avoids per-user thresholds. 
 
 4) **Multi-window approach (catch fast + slow)**
    - Rule A: >N failures in 1–2 minutes (fast)
@@ -42,7 +42,7 @@ This can happen during initial access or later in the intrusion. :contentReferen
 ### Blind spots / evasions (how attackers avoid your rules)
 - **Low-and-slow** attempts (evade short windows)
 - **Distributed botnet** attempts (evade per-IP thresholds)
-- **Password spraying** (evade per-user thresholds) :contentReference[oaicite:14]{index=14}
+- **Password spraying** (evade per-user thresholds) 
 - Use of already-valid credentials without any prior failures (no brute-force signature)
 
 ---
@@ -95,7 +95,7 @@ Initial Access
   - source IP fields, you can’t do “new IP” logic
   - baseline history, you can’t do “unusual” well
   - scheduled task/cron creation telemetry, persistence detection becomes weak
-- ATT&CK mapping exposes what you cannot detect due to missing telemetry. :contentReference[oaicite:15]{index=15}
+- ATT&CK mapping exposes what you cannot detect due to missing telemetry. 
 
 ---
 
