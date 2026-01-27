@@ -1,5 +1,56 @@
 # Day 4 – Lab Solution (MITRE ATT&CK Mapping)
+Chọn T1110 Brute Force và làm bảng này:
 
+Technique: T1110 Brute Force
+
+Possible telemetry sources:
+
+Linux auth.log (SSH)
+
+Windows 4625 / 4624
+
+VPN logs (nếu có)
+
+Detection ideas (ít nhất 3):
+
+fail burst (threshold + window)
+
+fail → success correlation
+
+distributed attempts (per IP across many users)
+
+Expected false positives:
+
+typo, password resets, automation
+
+Blind spots / evasions:
+
+low-and-slow, password spraying, botnet
+
+📌 Bạn đang làm “detection coverage thinking”, không viết Sigma/Splunk query.
+
+🧠 Lab B — Viết 1 mini attack path (text diagram)
+
+Tạo một đường tấn công đơn giản dạng chữ:
+
+Ví dụ (bạn có thể dùng hoặc tự làm):
+
+Initial Access
+  → Credential Access (Brute Force T1110)
+    → Successful Login (4624 / SSH Accepted)
+      → Privilege Misuse (4672)
+        → Persistence (cron job)
+
+
+👉 Nhiệm vụ:
+
+Với mỗi bước, ghi:
+
+Log nào hỗ trợ phát hiện?
+
+Detection point nào khả thi?
+
+Chỗ nào bạn mù (no telemetry)?
 ## Lab A — Technique → Telemetry → Detection ideas
 ### Technique
 - **T1110 Brute Force** (Credential Access) 
