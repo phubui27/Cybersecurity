@@ -1,0 +1,32 @@
+{
+  "input_alert": {
+    "alert_type": "aws_console_login_anomaly",
+    "user": "alice",
+    "source_ip": "185.10.10.10",
+    "country": "RU",
+    "timestamp": "2026-01-31T02:13:00Z",
+    "asset": "aws-prod-account",
+    "severity": "medium",
+    "user_role": "admin",
+    "asset_criticality": "prod",
+    "ip_is_bad": true,
+    "ip_is_allowlisted": false,
+    "country_is_new_for_user": true,
+    "out_of_hours": true
+  },
+  "risk_score": 100,
+  "decision": "Malicious",
+  "why": [
+    "Source IP matches known badlist/threat intel.",
+    "Login from a country not seen for this user (baseline anomaly).",
+    "Activity occurred outside typical business hours (out-of-hours).",
+    "User has admin privileges (higher impact if compromised).",
+    "Target asset is production-critical (higher blast radius)."
+  ],
+  "recommended_next_steps": [
+    "Check recent sign-in history (new IPs/countries, failures before success).",
+    "Validate whether the activity is expected (on-call, change request, travel).",
+    "Pull related events (AssumeRole/IAM changes) and prepare containment actions pending approval."
+  ],
+  "approval_required": true
+}
