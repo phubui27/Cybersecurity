@@ -186,6 +186,7 @@ def run_pipeline(input_path: str | None = None, output_path: str | None = None) 
     # LAB B rule 1: fail-closed if missing critical fields
     safe_output = fail_closed_if_missing(alert)
     if safe_output is not None:
+        write_audit(safe_output)  
         resolved_output.write_text(json.dumps(safe_output, indent=2), encoding="utf-8")
         return safe_output
 
@@ -202,8 +203,10 @@ def run_pipeline(input_path: str | None = None, output_path: str | None = None) 
         "approval_required": approval_required(enriched, dec),
     }
 
+    write_audit(output)  
     resolved_output.write_text(json.dumps(output, indent=2), encoding="utf-8")
     return output
+
 
 
 if __name__ == "__main__":

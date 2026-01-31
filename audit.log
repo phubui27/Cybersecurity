@@ -1,0 +1,1 @@
+{"ts": "2026-01-31T10:02:05.900224Z", "alert_type": "aws_console_login_anomaly", "user": "alice", "source_ip": "185.10.10.10", "asset": "aws-prod-account", "risk_score": 100, "decision": "Malicious", "approval_required": true}
